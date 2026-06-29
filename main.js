@@ -1,4 +1,5 @@
 import express from "express";
+import movieRoutes from './routes/movies.jroute.js';
 const app=express();
 const PORT=6969;
 app.get ("/",(req,res)=>{
@@ -6,19 +7,10 @@ app.get ("/",(req,res)=>{
         message: "Hello, World!"
     });  
 })
-//crud functionality of movies
-app.get('/movies',()=>{
+//client->middleware->server
+app.use('/movies',movieRoutes);
 
-})
-app.post('/movies',()=>{
 
-})
-app.put('/movies/:id',()=>{
-
-})
-app.delete('/movies/:id',()=>{
-
-})
 app.listen(PORT,()=>{
     console.log(`The server is running at http://localhost:${PORT}`);
 });
